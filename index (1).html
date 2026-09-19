@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TWKZ — Tweak Shop</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,Arial,sans-serif;background:#07080c;color:#fff;min-height:100vh}
+body:before{content:"";position:fixed;inset:0;background:radial-gradient(circle at 50% -10%,#26345c55,transparent 45%);pointer-events:none}
+.nav{height:72px;border-bottom:1px solid #ffffff12;display:flex;align-items:center;justify-content:space-between;padding:0 7%;position:relative}
+.logo{font-size:22px;font-weight:900;letter-spacing:2px}.logo span{color:#6d8cff}
+.nav a{color:#aeb4c7;text-decoration:none;margin-left:25px;font-size:14px}
+.hero{text-align:center;padding:85px 20px 45px;position:relative}
+.badge{display:inline-block;background:#6d8cff18;border:1px solid #6d8cff44;color:#9db1ff;padding:7px 13px;border-radius:999px;font-size:12px;margin-bottom:20px}
+h1{font-size:clamp(42px,7vw,78px);line-height:.95;letter-spacing:-4px}
+h1 span{color:#7895ff}
+.hero p{max-width:600px;margin:22px auto;color:#949bad;line-height:1.6}
+.container{width:min(1100px,90%);margin:auto;position:relative}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:25px 0 70px}
+.card{background:#0d1018;border:1px solid #ffffff12;border-radius:18px;padding:25px;transition:.2s}
+.card:hover{transform:translateY(-4px);border-color:#6d8cff66}
+.card.featured{border-color:#6d8cff88;box-shadow:0 0 35px #6d8cff12}
+.tag{font-size:11px;color:#8fa7ff;text-transform:uppercase;letter-spacing:1px}
+.card h2{margin:10px 0;font-size:22px}.desc{color:#8f96a8;font-size:14px;line-height:1.5;min-height:43px}
+.price{font-size:31px;font-weight:800;margin:22px 0}.price small{font-size:13px;color:#777f92;font-weight:400}
+ul{list-style:none;color:#b4b9c7;font-size:13px;line-height:2;margin-bottom:22px}
+li:before{content:"✓";color:#7f9aff;margin-right:9px}
+button{width:100%;border:0;border-radius:11px;padding:13px;font-weight:800;cursor:pointer;background:#fff;color:#080a0f}
+button:hover{filter:brightness(.92)}
+.free button{background:#6d8cff;color:#fff}
+.note{text-align:center;color:#72798b;font-size:12px;padding:0 0 45px}
+footer{border-top:1px solid #ffffff10;text-align:center;padding:25px;color:#646b7c;font-size:12px}
+.modal{display:none;position:fixed;inset:0;background:#000b;align-items:center;justify-content:center;padding:20px;z-index:5}
+.modal.show{display:flex}.modalbox{width:min(450px,100%);background:#10131c;border:1px solid #ffffff18;border-radius:18px;padding:25px}
+.modalbox h3{font-size:24px;margin-bottom:10px}.modalbox p{color:#9aa1b2;font-size:14px;line-height:1.5;margin-bottom:18px}
+.close{background:#242938;color:#fff;margin-top:10px}
+@media(max-width:800px){.grid{grid-template-columns:1fr}.nav{padding:0 5%}.nav a{margin-left:12px}}
+</style>
+
+<meta name="description" content="TWKZ Tweak Shop — Windows gaming optimization tools and downloadable tweaks.">
+<meta name="keywords" content="TWKZ, tweaks, Windows tweaks, gaming tweaks, FPS boost, PC optimization">
+<meta name="author" content="TWKZ">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#07080c">
+<meta property="og:title" content="TWKZ — Tweak Shop">
+<meta property="og:description" content="Windows gaming optimization tools and downloadable tweaks.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://YOUR-DOMAIN.example/">
+
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"TWKZ Tweak Shop",
+  "description":"Windows gaming optimization tools and downloadable tweaks.",
+  "url":"https://YOUR-DOMAIN.example/"
+}
+</script>
+
+</head>
+<body>
+<nav class="nav">
+  <div class="logo">TWKZ<span>.</span></div>
+  <div><a href="#shop">Shop</a><a href="#about">About</a></div>
+</nav>
+
+<section class="hero">
+  <div class="badge">WINDOWS PERFORMANCE SHOP</div>
+  <h1>BOOST YOUR<br><span>SETUP.</span></h1>
+  <p>Simple Windows optimization tools for gaming. Choose a tweak, download it, and test the changes yourself.</p>
+</section>
+
+<main class="container" id="shop">
+  <div class="grid">
+    <article class="card free">
+      <div class="tag">Free</div><h2>Starter Tweak</h2>
+      <p class="desc">A basic, reversible Windows gaming optimization pack.</p>
+      <div class="price">€0 <small>forever</small></div>
+      <ul><li>Basic optimizations</li><li>Simple installer</li><li>Free download</li></ul>
+      <button onclick="downloadFree()">DOWNLOAD FREE</button>
+    </article>
+
+    <article class="card featured">
+      <div class="tag">Popular</div><h2>FPS Boost</h2>
+      <p class="desc">A gaming-focused optimization pack for Windows PCs.</p>
+      <div class="price">€2.99</div>
+      <ul><li>Gaming optimizations</li><li>Backup/restore support</li><li>One-click setup</li></ul>
+      <button onclick="buy('FPS Boost','2.99')">BUY NOW</button>
+    </article>
+
+    <article class="card">
+      <div class="tag">Competitive</div><h2>Low Delay</h2>
+      <p class="desc">Settings focused on responsiveness and consistent gameplay.</p>
+      <div class="price">€2.99</div>
+      <ul><li>Input settings</li><li>Gaming configuration</li><li>Easy setup</li></ul>
+      <button onclick="buy('Low Delay','2.99')">BUY NOW</button>
+    </article>
+
+    <article class="card">
+      <div class="tag">Network</div><h2>Network Pack</h2>
+      <p class="desc">Windows network settings aimed at stable online gaming.</p>
+      <div class="price">€1.99</div>
+      <ul><li>Network configuration</li><li>Reversible changes</li><li>Simple setup</li></ul>
+      <button onclick="buy('Network Pack','1.99')">BUY NOW</button>
+    </article>
+
+    <article class="card">
+      <div class="tag">Bundle</div><h2>Ultimate Pack</h2>
+      <p class="desc">All available packs in one purchase.</p>
+      <div class="price">€5.99</div>
+      <ul><li>FPS Boost</li><li>Low Delay</li><li>Network Pack</li></ul>
+      <button onclick="buy('Ultimate Pack','5.99')">BUY NOW</button>
+    </article>
+
+    <article class="card" id="about">
+      <div class="tag">About</div><h2>Safe by Design</h2>
+      <p class="desc">Keep changes documented and provide a restore option for every Windows tweak.</p>
+      <div class="price">100%</div>
+      <ul><li>Clear descriptions</li><li>No hidden downloads</li><li>Restore instructions</li></ul>
+      <button onclick="showInfo()">LEARN MORE</button>
+    </article>
+  </div>
+  <div class="note">Performance varies by PC, Windows version, drivers and game settings. No tweak can guarantee a specific FPS or ping.</div>
+</main>
+
+<footer>© 2026 TWKZ. All rights reserved. · <a href="#shop" style="color:#8fa7ff;text-decoration:none">Shop</a></footer>
+
+<div class="modal" id="modal">
+  <div class="modalbox">
+    <h3 id="modalTitle">Checkout</h3>
+    <p id="modalText"></p>
+    <button id="checkoutBtn">CONTINUE TO CHECKOUT</button>
+    <button class="close" onclick="closeModal()">CLOSE</button>
+  </div>
+</div>
+
+<script>
+let selectedProduct="";
+function buy(name,price){
+  selectedProduct=name;
+  document.getElementById("modalTitle").textContent=name+" — €"+price;
+  document.getElementById("modalText").textContent=
+    "This button is ready for a real payment link. Add your Stripe/PayPal checkout URL in the JavaScript before publishing.";
+  document.getElementById("checkoutBtn").onclick=function(){
+    alert("Add your real payment checkout URL to this product first.");
+  };
+  document.getElementById("modal").classList.add("show");
+}
+function closeModal(){document.getElementById("modal").classList.remove("show")}
+function showInfo(){
+  document.getElementById("modalTitle").textContent="About TWKZ";
+  document.getElementById("modalText").textContent="This is the frontend shop. Real payments and automatic delivery should be connected through a payment provider and a secure backend.";
+  document.getElementById("checkoutBtn").style.display="none";
+  document.getElementById("modal").classList.add("show");
+}
+function downloadFree(){
+  const content='TWKZ STARTER TWEAK\\n\\nThis demo download is a placeholder. Replace it with your own tested .bat or PowerShell file.\\n';
+  const blob=new Blob([content],{type:'text/plain'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='TWKZ-Starter-Tweak.txt';a.click();
+}
+</script>
+</body>
+</html>
